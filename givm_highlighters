@@ -1,0 +1,140 @@
+set nu
+set ai
+filetype on
+setf vera
+syntax on
+set noswapfile
+colorscheme default
+autocmd BufRead,BufNewFile *.sv set filetype=vera
+
+
+
+
+set backspace=indent,eol,start
+set cscopeprg=/usr/bin/cscope
+set cscopetag
+set cscopeverbose
+set fileencodings=utf-8,latin1
+set formatoptions=tcql
+set helplang=en
+set history=2000
+set mouse=a
+set termencoding=utf-8
+set viminfo='20,\"50
+set ic
+set ru
+if has("gui_running")
+set guiheadroom=0
+"set background=light
+colorscheme default
+set guiheadroom=0
+setf vera
+winpos 0 0
+else
+if &t_Co > 2 && $BACKGROUND == "light"
+set background=light
+endif
+endif
+
+""""""" configure spaces left by tab""""
+set softtabstop=2 "comment this line for issue related to tab **********************************************************************
+set foldcolumn=1
+set autoindent
+set smartindent
+set modeline
+""""""""""""""""""""""""""""""""""""""""
+set tabpagemax=50
+"set backupdir=~/.vim/.backup//
+set nocompatible " use vim default
+set ls=2 " always show status line
+set tabstop=4 " number of spaces of tab character "comment this line for issue related to tab****************************
+set shiftwidth=5 " number of spaces to indent
+set scrolloff =3 " keep 3 lines while scrolling
+set showcmd " display incomplete command
+set showmatch " highlight matching bracres
+set hlsearch " highlight searches
+set visualbell t_vb="_" " turnoff error beep/flash
+set nobackup " do not keep backup file
+set number " show line numbers
+set ignorecase " ignorecase when searching
+set smartcase " ignorecase when searching, and when capital is
+set title " show title in console title bar
+set ttyfast " smoother changes
+set modelines=3 " number lines checked for modelines
+set shortmess=atI " Abbriviate message
+set nostartofline " Don't jump to first character when paging
+set whichwrap=b,s,h,l,<,>,[,] " move freely between files
+set backspace=2 " backspace to work as it is suppose to
+set cindent " cindent
+set fileencodings+=gb18030,gbk,gb2312,cp936
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set sm " show matching braces, somewhat annoying
+set ul=1000
+"set gfn=-dec-terminal-medium-r-normal-*-*-140-*-*-c-*iso8859-1
+set guifont=Monospace\ 11
+syn on
+set expandtab
+set ruler
+
+map <F2> :wa!<ENTER>
+imap <F2> <esc>:wa!<ENTER>
+
+set nu
+set warn
+set hls
+set incsearch
+set cursorline
+set cursorcolumn
+"--------------------------------------------------------------
+ab $d $display("",);
+ab $m $monitor("",);
+ab $s $strobe("",);
+ab endc endclass
+ab endf endfunction
+ab endt endtask
+ab endp endprogram
+ab endm endmodule
+ab endi endinterface
+ab drvi class ahb_driver extends uvm_driver#(ahb_sequenceitem);<CR><CR>`uvm_component_utils(ahb_driver)<CR><CR>ahb_sequenceitem pkt;<CR><CR>virtual ahb_inff intf;<CR><CR>function new(string name="ahb_driver",uvm_component parent=null);<CR><CR>super.new(name,parent);<CR><CR>endfunction<CR><CR>virtual function void build_phase(uvm_phase phase);<CR><CR>super.build_phase(phase);<CR><CR>pkt=ahb_sequenceitem::type_id::create("pkt");<CR><CR>if(!uvm_config_db#(virtual ahb_inff)::get(this,"","intf",intf))<CR><CR>`uvm_error("ahb_driver","Unable to access interface")<CR><CR>endfunction<CR><CR>endclass
+ab endpk endpackage
+ab uvmo `uvm_object_utils()
+ab uvmc `uvm_component_utils()
+ab newc function new(string name, uvm_component parent);<CR><CR>endfunction
+ab newo function new(string name = "" );<CR><CR>endfunction
+ab build1 function void build_phase(uvm_phase phase);<CR><CR>endfunction
+ab connect1 function void connect_phase(uvm_phase phase);<CR><CR>endfunction
+ab run task run_phase(uvm_phase phase);<CR><CR>endtask
+ab eoe function void end_of_elaboration_phase(uvm_phase phase);<CR><CR>endfunction
+ab superc super.new(name, parent);
+ab supero super.new(name);
+ab report function void report_phase(uvm_phase phase);<CR><CR>endfunction
+
+ab uvmxtn class xtn extends uvm_sequence_item;<CR><CR>endclass
+ab uvmseqs class seqs extends uvm_sequence #();<CR><CR>endclass
+ab uvmseqr class seqr extends uvm_sequencer #();<CR><CR>endclass
+ab uvmdri class driver extends uvm_driver #();<CR><CR>endclass
+ab uvmmon class monitor extends uvm_monitor;<CR><CR>endclass
+ab uvmagent class agent extends uvm_agent;<CR><CR>endclass
+ab uvmenv class env extends uvm_env;<CR><CR>endclass
+ab uvmsb class scoreboard extends uvm_scoreboard;<CR><CR>endclass
+ab uvmvseq class vir_seqs extends uvm_sequence #(uvm_sequence_item);<CR><CR>endclass
+ab uvmvseqr class vir_seqr extends uvm_sequencer #(uvm_sequence_item);<CR><CR>endclass
+ab uvmtest class test extends uvm_test;<CR><CR>endclass
+ab uvmcfg class config extends uvm_object();<CR><CR>endclass
+ab set1 uvm_config_db#()::set(this,"*","",);
+ab get1 uvm_config_db#()::get(this,"","",);
+
+ab info `uvm_info(get_type_name(),,UVM_LOW)
+ab error `uvm_error(get_type_name(),"")
+ab fatal `uvm_fatal(get_type_name(),"error while getting ")
+ab create1 ::type_id::create("");
+ab dump `ifdef VCS<CR> $fsdbDumpvars(0, top);<CR>`endif
+
+"--------------------------------------------------------------
+
+"au BufNewFile,BufReadPost *.sv,*.svi,*.svh,*.v,*.h,*.svp set syntax=systemverilog
+filetype plugin indent on
+set viminfo='20,\"50
+
+syntax on
+
