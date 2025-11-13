@@ -1,0 +1,348 @@
+Agenda:
+1. GVIM text editor
+
+Notes:
+1. how GVIM is related to Verilog?
+    o GVIM is an application which can be used to develop Verilog code
+    o GVIM makes programming or development of code much easier compared to other text editors.
+
+2. what are text editors are available?
+    o notepad
+    o wordpad
+    o notepad++
+    o office word
+    o Emacs
+    o Nedit
+
+3. what editors generally programmers use?
+    o notepad++
+    o GVIM
+    o Emacs
+    o Nedit
+
+4. currently I am using GVIM
+    o if we can text editor efficeiently
+        o we can code 100 lines of code in 5 to 10 min
+
+5. Why not Microsoft word?
+    o Good for doing textutal graphics.
+
+6. why not notepad and wordpad?
+    o user has to do all the things manually(selecting, copying, etc)
+        o there are no keyboard shortcuts.
+
+7. How GVIM helps?
+    o GVIM has lot of keyboard shortcuts, which make coding lot easier compared to other text editors.
+    o What is a keyboard shortcut?
+        o shortcuts in individual keyboard character level, which gives lot of convience
+
+8. GVIM basics
+    o works in 2 modes
+        o escape mode
+            o All keyboard shortcuts works only in this mode
+            o by pressing 'escape' we enter escape mode
+            o whenever user don't have anything to type(or to code), by default we should go to escape mode.
+                o by mistake if we are in insert mode, it may result in accidental code update
+        o insert mode
+            o In the mode I can only type the code, we can't use keyboard shortcuts.
+            o by pressing 'i' or 'insert' we enter escape mode
+                o by pressing 'o' or 'O'
+
+9. ctrl+p : used for auto filling of the text
+
+10. various keyboard shortcut
+
+11. Verilog code
+    - Verilog language keywords gets highlighted in brown colour
+
+12. How to save files in gvim
+    o save option in the top tab
+        File -> save
+    o File name shows as [+] => file has some updates, which are not yet saved
+
+13. auto filling using the tab
+    o when we are entering file names, we can use 'tab' to auto fill the names
+        o after typing :spl ve then tab
+            o what all files in current folder are starting with 've', it shows all options to me when I type ctrl+d, from which I can select which file to open.
+                o if there is only one file, it gives that name
+
+14. what is meant by split
+    o opening multiple files in the same window
+    o we should be in escape mode
+        :sp or :spl or :split
+        GVIM works on shortcuts (typing 2 characters saves 60% of my time)
+
+15. How many types of splits are there?
+    o horizontal split (defualt mode for split)
+    o vertical split (:vsp or :vspl or :vsplit filename)
+
+16. how to move between one file to another in the split screen?
+    o ctrl+w
+        o followed by up, down, left or right arrows
+
+17. A good programmer, will use mouse very minimally(almost not using)
+
+18. how to make a split file bigger, other files smaller?
+    o go to that file using ctlr+w, arrows
+        o ctrl+w, _  (shift & - ==> underscore)
+        above + : type of both keypads together
+        above , : one after other
+
+19. how to make all the files equal in size?
+    o cursor(cursor inside the gvim, not mouse cursor) can be any file
+    o ctrl+w, =
+
+20. how to quit(close) a file?
+    :w : write the changes to the file
+    :q : quit the file from GVIM
+    :wq : write the changes and quit after that
+    :q! : quit the file without updating the changes to the file
+    :wq! : write the changes and quit after that(forcefully)
+    :qa : quits all the files
+    :wqa : write all the file changes, quit all the files
+    
+21. how to install GVIM
+    o how to enable teh syntax
+        o google search: how to enable verilog syntax highlighting in vim
+            https://www.vim.org/scripts/script.php?script_id=1586
+            download : verilog_systemverilog.tar.gz
+    o go to below path in file explorer
+        C:Program Files (x86)Vimvimfiles
+            o look for ftdetect, indent, syntax
+
+22. how to turn on syntax in gvim
+        :syntax on
+    to turn off:
+        :syntax off
+    for syntax to work, we should copy the above downloaded files
+        o due to these downloaded files only gvim know what are the keywords
+
+23. GVIM keywords shortcuts (all these shortcuts work only in escape mode)
+ insert mode, escape mode, how to move from one to other mode
+ how to move cursor to the left(h), right(l), top(k), down(j), multiple lines(10j)
+ how to move to 1st line(gg), how to move to last line of the file(G)
+ end of the line(0), beginning of the line($), next word(w), end of the word(e), previous word(b)
+ Moving to specific line number (:20, enter)
+ delete word(dw), character(x), line(dd), multiple lines(ndd => delete n lines)
+     delete 3 words in series: 3dw
+    delete n characters: nx
+    u : to undo previous operations
+    3u : undo 3 previous operations
+    ctlr+r : redo the operation
+ how to copy a word, character, line, multiple lines 
+     yw : yank(~copying) a word 
+    copy 3 words: 3yw
+    yy : copy the current line
+    nyy : copy n lines starting from the current line
+ how to paste the deleted or copied content
+    If we are pasting a line
+         p : paste below the current line
+         P : paste above the current line
+    If we are pasting a word or character
+         p : paste in current line, but after the current character
+         P : paste in current line, but before the current character
+    np, nP : paste happens n times(applies for line, word, and characters)
+
+ how to search a word
+     one way: escape mode, /word_to_search    
+        n : takes us to the next search word location
+        N : takes us to the prev search word location
+        4n : takes directly 4th search location in forward direction
+        4N : takes directly 4th search location in backward direction (4 is just for example)
+    2nd way: keep cursor on the word that we want to search, 
+        - *(shift+8)  => searches in forward direction
+        - #(shift+3)  => searches in reverse direction
+
+ how to replace a word in various lines of the complete file
+     :g/original_word/s//new_word/g
+        in escape mode, when we enter ':', we are giving instructions to the GVIM
+
+ how to replace a word in specific range of lines only
+    :138,141s/paste/new_word/g
+        above command will do the changes only between 138 to 141 line numbers
+        this is useful in selective replacing of words, where we don't want to replace in the whole file
+    :%s/paste/new_word/g
+        replaces in the whole file
+        % : from 1st line to end of the file
+
+ how to replace a character
+    replace : r
+    to replace c above with p => r,p
+
+ how to replace multiple characters
+    to replace 3 characters with same new character:
+        3r, new character
+
+ how to go to line with specific number of lines later to current line
+     5j : 5 lines down
+        o 5, enter : takes us 5 lines down(5j is prefered option)
+     5k : 5 lines up
+
+ how to undo previous change, previous changes
+     u : one time undo previous change
+     nu : undo 'n' previous change
+
+ how to redo the undo's:
+    redo: ctrl+r (n times we need to ctrl+r to redo all n undo's)
+     ctrl+r
+
+ how to save file, how to close file without saving
+    :w : write the changes to the file
+    :q : quit the file from GVIM
+    :wq : write the changes and quit after that
+    :q! : quit the file without updating the changes to the file
+    :wq! : write the changes and quit after that(forcefully)
+    :qa : quits all the files
+     
+ how to save as a new file
+    :w new_file_name
+
+ how to give line number
+    tell to the GVIM, that we want line numbers in the lines.
+        :set number (:se nu)
+    how to clear the numbers
+        :set nonumber (:se nonu)
+        :set number (:se nu)
+
+ how to open new file in same window
+     horizontal split
+         :spl
+     vertical split
+        :vspl
+
+ how to move from one file to another in the split window
+     ctrl+w, up,down,right,left arrow
+ how to make one file window bigger
+     ctrl+w, shift-
+ how to make all file windows uniform size
+     ctrl+w, =
+
+ how to open a file in new tab:
+     :tabnew file_name
+
+Q : After splitting.. what ever changes doing in one window. in another window also changes happen why
+    o when we search for a word, it searches in complete vim screen(all the files)
+ 
+24. vim applicaiton has a root configuration by name '.vimrc'
+    it is present in my user home folder: ~/
+    complete file path: ~/.vimrc
+        vimrc: vim root configuration file
+            - the default configuration of the vim(~gvim), which should automatically apply to all the files.
+
+RC file contents:
+    set nocompatible 
+    set hlsearch 
+        o when we search for a word, it highlights the word in yellow background color
+        :set nohlsearch (:se nohls)
+            again to enable highlighting :se hls
+    set incsearch 
+        while searching, even without typing complete word, it starts showing me the word in the file
+    set number 
+        o set the numbers
+    set showmode 
+        o mode of the GVIM
+    set syntax=ON 
+        o turn on the syntax
+    set autoindent
+        o gvim automatically applies some code indentation rules
+    set tabstop=4
+        o what is the size of tab
+    syntax on
+
+25.
+Visual mode
+function in gvim
+
+tomorrow session:
+    o gvim installed
+    o download the syntax file, try to enable the syntax
+
+
+26. Create Verilog design instance
+    - one way
+        o manually code => which is very tedious
+    dma_axi64 dut(
+        .clk(clk),
+         so on);
+
+    = other way, is by using functions in GVIM
+
+    module dma_axi64(clk,reset,scan_en,idle,INT,periph_tx_req,periph_tx_clr,periph_rx_req,periph_rx_clr,pclken,psel,penable,paddr,pwrite,pwdata,prdata,pslverr,pready,AWID0,AWADDR0,AWLEN0,AWSIZE0,AWVALID0,AWREADY0,WID0,WDATA0,WSTRB0,WLAST0,WVALID0,WREADY0,BID0,BRESP0,BVALID0,BREADY0,ARID0,ARADDR0,ARLEN0,ARSIZE0,ARVALID0,ARREADY0,RID0,RDATA0,RRESP0,RLAST0,RVALID0,RREADY0);
+
+    bring to below format:
+//Instinatiing the design
+dma_axi64 dut(
+    .clk(clk),
+    .reset(rst),
+    .scan_en(scan_en),
+    .idle(apb_pif.idle),
+    .INT(apb_pif.INT),
+    .periph_tx_req(periph_pif.periph_tx_req),
+    .periph_tx_clr(periph_pif.periph_tx_clr),
+    .periph_rx_req(periph_pif.periph_rx_req),
+    .periph_rx_clr(periph_pif.periph_rx_clr),
+    .pclken(apb_pif.pclken),
+    .psel(apb_pif.psel),
+    .penable(apb_pif.penable),
+    .paddr(apb_pif.paddr),
+    .pwrite(apb_pif.pwrite),
+    .pwdata(apb_pif.pwdata),
+    .prdata(apb_pif.prdata),
+    .pslverr(apb_pif.pslverr),
+    .pready(apb_pif.pready),
+    .AWID0(axi_pif.awid),
+    .AWADDR0(axi_pif.awaddr),
+    .AWLEN0(axi_pif.awlen),
+    .AWSIZE0(axi_pif.awsize),
+    .AWVALID0(axi_pif.awvalid),
+    .AWREADY0(axi_pif.awready),
+    .WID0(axi_pif.wid),
+    .WDATA0(axi_pif.wdata),
+    .WSTRB0(axi_pif.wstrb),
+    .WLAST0(axi_pif.wlast),
+    .WVALID0(axi_pif.wvalid),
+    .WREADY0(axi_pif.wready),
+    .BID0(axi_pif.bid),
+    .BRESP0(axi_pif.bresp),
+    .BVALID0(axi_pif.bvalid),
+    .BREADY0(axi_pif.bready),
+    .ARID0(axi_pif.arid),
+    .ARADDR0(axi_pif.araddr),
+    .ARLEN0(axi_pif.arlen),
+    .ARSIZE0(axi_pif.arsize),
+    .ARVALID0(axi_pif.arvalid),
+    .ARREADY0(axi_pif.arready),
+    .RID0(axi_pif.rid),
+    .RDATA0(axi_pif.rdata),
+    .RRESP0(axi_pif.rresp),
+    .RLAST0(axi_pif.rlast),
+    .RVALID0(axi_pif.rvalid),
+    .RREADY0(axi_pif.rready)
+);
+
+    steps:
+        - keep each signal in one-one line
+
+- 5 to 10 => 5 lines or 6 lines? 6
+
+- totalyl 45 lines
+    455 => will it work? it won;t work => totally 5 times it will happen
+    445, 5 => 44+1 = 45 times
+
+linux is good operating system, which can be mastered by practice.
+
+27. ctags
+    o what are tags
+        o tags is a file that is created with pointer to the various files where keyword is defined
+    o how to create tag file
+        o Go to the top most directory of the project(or the places under which all the project files are present)
+        o ctags -R .
+            o we can also select the diretories to tag
+    o how to map GVIM with tag file
+        o :set tags=tag_file_name
+    o how to use tags to navigating the file
+        o keep the cursor on the keywrod(tag) we want to search
+        o ctrl+] => will show us available options which are pointing to that tag
+            o enter the number, that destination file automatically opens
+                o if there is only one option, it automatically takes us to that file.
+            o to come back use, ctrl+o
